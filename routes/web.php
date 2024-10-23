@@ -16,3 +16,12 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+
+//$router->get('/generate-pdf', 'CardController@generatePdf');
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->get('/cards', 'CardController@getCards');
+    $router->get('/faqs', 'IFaqController@getFacqs');
+    $router->get('/sections', 'SectionCardController@getSections');
+});
